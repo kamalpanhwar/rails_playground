@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Companies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Subdomain</th>
+      <th>Owner first name</th>
+      <th>Owner last name</th>
+      <th>Owner email</th>
+      <th>Owner mobile number</th>
+      <th>State code</th>
+      <th>Fiscal year</th>
+      <th>Company timezone</th>
+      <th>Terms and condition title</th>
+      <th>Jurisdiction</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.name %></td>
+        <td><%= company.subdomain %></td>
+        <td><%= company.owner_first_name %></td>
+        <td><%= company.owner_last_name %></td>
+        <td><%= company.owner_email %></td>
+        <td><%= company.owner_mobile_number %></td>
+        <td><%= company.state_code %></td>
+        <td><%= company.fiscal_year %></td>
+        <td><%= company.company_timezone %></td>
+        <td><%= company.terms_and_condition_title %></td>
+        <td><%= company.jurisdiction %></td>
+        <td><%= link_to 'Show', company %></td>
+        <td><%= link_to 'Edit', edit_company_path(company) %></td>
+        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Company', new_company_path %>

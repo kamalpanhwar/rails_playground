@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Subdomain:</strong>
+  <%= @company.subdomain %>
+</p>
+
+<p>
+  <strong>Owner first name:</strong>
+  <%= @company.owner_first_name %>
+</p>
+
+<p>
+  <strong>Owner last name:</strong>
+  <%= @company.owner_last_name %>
+</p>
+
+<p>
+  <strong>Owner email:</strong>
+  <%= @company.owner_email %>
+</p>
+
+<p>
+  <strong>Owner mobile number:</strong>
+  <%= @company.owner_mobile_number %>
+</p>
+
+<p>
+  <strong>State code:</strong>
+  <%= @company.state_code %>
+</p>
+
+<p>
+  <strong>Fiscal year:</strong>
+  <%= @company.fiscal_year %>
+</p>
+
+<p>
+  <strong>Company timezone:</strong>
+  <%= @company.company_timezone %>
+</p>
+
+<p>
+  <strong>Terms and condition title:</strong>
+  <%= @company.terms_and_condition_title %>
+</p>
+
+<p>
+  <strong>Jurisdiction:</strong>
+  <%= @company.jurisdiction %>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

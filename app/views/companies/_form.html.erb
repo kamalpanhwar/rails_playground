@@ -1,0 +1,126 @@
+
+<%= simple_form_for(@company) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :subdomain %>
+    <%= f.input :owner_first_name %>
+    <%= f.input :owner_last_name %>
+    <%= f.input :owner_email %>
+    <%= f.input :owner_mobile_number %>
+    <%= f.input :state_code %>
+    <%= f.input :fiscal_year %>
+    <%= f.input :company_timezone %>
+    <%= f.input :terms_and_condition_title %>
+    <%= f.input :jurisdiction %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+                     <%= form_with(model: company, local: true) do |form| %>
+                     <h2 style="color: #2c3e50;">COMPANY REGISTRATION</h2>
+                     <br />
+                     <div>
+                        <h5 style="color: #2c3e50;">COMPANY INFORMATION</h5>
+                     </div>
+                     <hr class="my-3">
+                     <div class="row">
+                        <div class="col-12 col-sm-12">
+                           <label>COMPANY NAME <span>*</span></label>
+                           <%= form.text_field :name, class: 'form-control',
+                              autofocus: true, placeholder: "Company name", autocomplete: "off" %>
+                           <div class="text-danger">
+                              <%= form.object.errors[:name].join(", ") %>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-12 col-sm-12">
+                           <label>ACCOUNT NAME <span>*</span></label>   
+                           <div class="input-group flex-nowrap">
+                              <div class="input-group-prepend">
+                                 <span class="input-group-text" id="addon-wrapping">http://</span>
+                              </div>
+                              <%= form.text_field :subdomain, class: 'form-control', placeholder: "Add account name", autocomplete: "off" %>
+                              <div class="input-group-append">
+                                 <span class="input-group-text" id="addon-wrapping">.example.com</span>
+                              </div>
+                           </div>
+                           <small class="form-text text-muted">You can't change it later.</small>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-12 col-sm-12">
+                           <div class="text-danger">
+                              <%= form.object.errors[:subdomain].join(", ") %>
+                           </div>
+                        </div>
+                     </div>
+                     <br /> 
+                     <div>
+                        <h5 style="color: #2c3e50;">OWNER INFORMATION</h5>
+                     </div>
+                     <hr class="my-3">
+                     <div class="row">
+                        <div class="col-12 col-sm-6">
+                           <label>FIRST NAME <span>*</span></label>
+                           <%= form.text_field :owner_first_name, class: 'form-control',  placeholder: "Add first name", autocomplete: "off" %>
+                           <div class="text-danger">
+                              <%= form.object.errors[:owner_first_name].join(", ") %>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                           <label>LAST NAME <span>*</span></label>
+                           <%= form.text_field :owner_last_name, class: 'form-control',  placeholder: "Add last name", autocomplete: "off" %>
+                           <div class="text-danger">
+                              <%= form.object.errors[:owner_last_name].join(", ") %>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-12 col-sm-6">
+                           <label>EMAIL <span>*</span></label>
+                           <%= form.email_field :owner_email, class: 'form-control',
+                              placeholder: "Add email address", autocomplete: "off" %>   
+                           <div class="text-danger">
+                              <%= form.object.errors[:owner_email].join(", ") %>
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                           <label>MOBILE NUMBER <span>*</span></label>
+                           <%= form.text_field :owner_mobile_number, class: 'form-control', 
+                              placeholder: "Add mobile number", autocomplete: "off" %>
+                           <div class="text-danger">
+                              <%= form.object.errors[:owner_mobile_number].join(", ") %>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-12 col-sm-12">
+                           <%= form.hidden_field :state_code, class: 'form-control', value: 24 %>
+                           <%= form.hidden_field :fiscal_year, class: 'form-control', 
+                              value: "April - March" %>
+                           <%= form.hidden_field :company_timezone, class: 'form-control', 
+                              value: "Kolkata" %>
+                           <%= form.hidden_field :terms_and_condition_title, class: 'form-control', 
+                              value: "TERMS AND CONDITIONS:" %>
+                           <%= form.hidden_field :jurisdiction, class: 'form-control', 
+                              value: "SUBJECT TO AHMEDABAD JURISDICTION" %>
+                        </div>
+                     </div>
+                     <div class="row top-padding">
+                        <div class="col-12 col-sm-12">
+                           <div class="form-button text-right">
+                              <%= form.button "REGISTER COMPANY", class: "btn btn-primary",
+                                 data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating company..."} %>
+                           </div>
+                        </div>
+                     </div>
+                     <% end %>
+
+
